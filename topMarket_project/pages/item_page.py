@@ -1,4 +1,4 @@
-from playwright.sync_api import Page
+from playwright.sync_api import Page, expect
 
 from topMarket_project.pages.base_page import BasePage
 
@@ -67,8 +67,19 @@ class ItemPage(BasePage):
 
         return False
 
+    # def get_num_of_cart_item(self):
+    #     self.page.wait_for_selector(self.__CART_BTN)
+    #     text = self.get_text(self.__CART_BTN)
+    #
+    #     if text:
+    #         parts = text.split()
+    #         if parts and parts[0].isdigit():
+    #             return int(parts[0])
+    #     return 0
+
     def get_num_of_cart_item(self):
-        self.page.wait_for_selector(self.__CART_BTN)
+        cart_locator = self.page.locator(self.__CART_BTN)
+        expect(cart_locator).not_to_have_text("0", timeout=5000)
         text = self.get_text(self.__CART_BTN)
 
         if text:
