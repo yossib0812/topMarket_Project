@@ -20,12 +20,14 @@ class TestAddToCart(BaseTest):
         self.search_page.choose_item()
         num_in_cart = int(self.item_page.get_num_of_cart_item())
         self.item_page.add_to_cart()
+        assert int(self.item_page.get_num_of_cart_item()) == num_in_cart + 1, f"Test add_to_cart2- Failed"
+
         self.item_page.back_to_home_page()
         self.main_page.search_product("Apple iPhone 17 Pro Max MFYN4 - 6.9")
         self.search_page.choose_item()
         self.item_page.add_to_cart()
 
-        assert int(self.item_page.get_num_of_cart_item()) == num_in_cart+2  , f"Test add_to_cart1- Failed"
+        assert int(self.item_page.get_num_of_cart_item()) == num_in_cart+2  , f"Test add_to_cart2- Failed"
 
 
 
