@@ -17,6 +17,7 @@ from topMarket_project.pages.terms_condition_page import TermsAndConditionPage
 @pytest.fixture(scope="class")     #autouse=True
 def setup_page_class(request, browser):
     page = browser.new_page()
+    page.set_default_timeout(15000)
     page.goto("https://www.topmarket.co.il/en/")
     request.cls.cart_page = CartPage(page)
     request.cls.item_page = ItemPage(page)
@@ -35,6 +36,7 @@ def setup_page_class(request, browser):
 
 @pytest.fixture(scope="function" )   #autouse=True
 def setup_page_function(request, page: Page):
+    page.set_default_timeout(15000)
     page.goto("https://www.topmarket.co.il/en/")
     request.cls.cart_page = CartPage(page)
     request.cls.item_page = ItemPage(page)
