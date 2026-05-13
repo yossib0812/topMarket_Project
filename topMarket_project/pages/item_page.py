@@ -22,7 +22,8 @@ class ItemPage(BasePage):
 
     def add_to_cart(self):
         self.page.locator(self.__NEW_BUY_BTN).first.click()
-        self.page.locator(self.__CLOSE_BAY_BTN)
+        #self.page.locator(self.__CLOSE_BAY_BTN)
+        self.click(self.__CLOSE_BAY_BTN)
 
     def get_title_item(self):
         return self.get_text(self.__PRODUCT_TITLE_LABEL)
