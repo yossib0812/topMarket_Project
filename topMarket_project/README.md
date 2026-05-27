@@ -20,7 +20,7 @@ tests/: Test suites categorized by functionality (e.g., test_add_to_cart.py).
 
 conftest.py: Global fixtures, including browser setup and function-level scoping.
 
-.github/workflows/: CI configuration for running tests in the cloud.
+github/workflows/: CI configuration for running tests in the cloud.
 
 🚀 Recent Improvements
 Strict Mode Stability: Refined locators using get_by_role to prevent "Multiple elements found" errors.
