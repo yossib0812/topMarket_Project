@@ -1,4 +1,4 @@
-from playwright.sync_api import Page
+from playwright.sync_api import Page, expect
 
 from topMarket_project.pages.base_page import BasePage
 
@@ -22,7 +22,8 @@ class ItemPage(BasePage):
 
     def add_to_cart(self):
         self.page.locator(self.__NEW_BUY_BTN).first.click()
-        self.page.locator(self.__CLOSE_BAY_BTN)
+        #self.page.locator(self.__CLOSE_BAY_BTN)
+        self.click(self.__CLOSE_BAY_BTN)
 
     def get_title_item(self):
         return self.get_text(self.__PRODUCT_TITLE_LABEL)
@@ -67,8 +68,10 @@ class ItemPage(BasePage):
 
         return False
 
+
     def get_num_of_cart_item(self):
-        self.page.wait_for_selector(self.__CART_BTN)
+        cart_locator = self.page.locator(self.__CART_BTN)
+        expect(cart_locator).not_to_have_text("0", timeout=5000)
         text = self.get_text(self.__CART_BTN)
 
         if text:

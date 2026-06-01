@@ -8,7 +8,7 @@ class TestSearchProductInCart(BaseTest):
 
     def test_names_item_in_cart(self):
         self.main_page.page.wait_for_load_state("networkidle")
-        self.main_page.search_product("DELL Pro 14 Essential PV14250-5271 - 14")
+        self.main_page.search_product("DELL Latitude 3450 L3450-5086 - 14")
         self.search_page.choose_item()
         self.item_page.add_to_cart()
         self.item_page.go_to_cart_page()

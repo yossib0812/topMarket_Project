@@ -12,7 +12,7 @@ class BasePage:
     def page(self):
         return self.__page
 
-    __CART_BTN = ".ut2-top-cart-content"
+    # __CART_BTN = ".ut2-top-cart-content"
 
 
     def click(self, locator):
