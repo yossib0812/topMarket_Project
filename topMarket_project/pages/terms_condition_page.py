@@ -9,14 +9,9 @@ class TermsAndConditionPage(BasePage):
         super().__init__(page)
 
 
-    __TITLE_PAGE = "[role='heading']"
 
-
-    def get_title_page(self):
-        return self.get_text(self.__TITLE_PAGE)
-
-    def is_not_the_right_page(self):
-        return self.get_text(self.__)
+    def get_tittle_page(self):
+        return self.page.get_by_role("heading", name="Terms and Conditions").inner_text()
 
 
 
